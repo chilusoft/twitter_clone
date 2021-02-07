@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/fa/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static  'core/fa/webfonts/fa-regular-400.ttf' %}">
+    <link rel="stylesheet" href="{% static  'core/fa/webfonts/fa-brands-400.eot' %}">
+    <link rel="stylesheet" href="{% static  'core/fa/webfonts/fa-brands-400.svg' %}">
+    <link rel="stylesheet" href="{% static  'core/fa/webfonts/fa-regular-400.eot' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone By Chilusoft</title>
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-info bg-light fixed-top" align="center">
+        
+        <div align="center">
+
+            <span class="navbar-text text-warning">
+              
+                <a href="{% url 'core:index' %}" class="btn btn-sm btn-info btn-round">Home</a> 
+                <a href="{% url 'core:create_tweet' %}" class="btn btn-sm btn-info btn-round">Add Tweet</a> 
+                <a href="https://github.com/chilusoft" class="btn btn-sm btn-info btn-round">My GitHub</a> 
+                
+            </span>
+
+        
+        </div>
+    </div>
+</body>
+{% block content %}
+
+{% endblock content %}
