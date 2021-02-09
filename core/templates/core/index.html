@@ -4,7 +4,9 @@
 <br>
 <br>
 <br>
-
+<br>
+<br>
+<br>
     
 
         </div>
@@ -28,7 +30,7 @@
         <div align="center">
             <div align="left">
                 <span >
-                    <a href="{% url 'core:edit_tweet' tweet.id %}">edit</a>
+                    <a href="{% url 'core:edit_tweet' tweet.id %}" class="btn btn-sm btn-info">edit tweet <i class="fas fa-edit"></i> </a>
                 </span>
             </div>
            <div>
@@ -42,7 +44,15 @@
     
     </div>    
     {% empty %}
-        <p>no one has tweets yet, check back later.....</p>
+
+        <div class="jumbotron" align="center" >
+            <h4>
+                No tweets yet, be the first to add a tweet by click the add tweet button. :-)
+            </h4>
+            <div align="center">
+                <a href="{% url 'core:create_tweet' %}" class="btn btn-info btn-lg "> Make Tweet <i class="fas fa-plus fa3x"></i> </a>
+            </div>
+        </div>
     {% endfor %}
 </div>
 {% endblock content %}

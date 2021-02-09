@@ -27,7 +27,7 @@
             </span>
             <span class="navbar-text pull-right">
                 {% if user.is_authenticated %}
-                    <p style="font-weight: bolder;">Welcome {{ user.username}} | <a href="{% url 'users:signout' %}">logout</a> </p>
+                    <p style="font-weight: bolder;">Welcome {{ user.username}} | <a href="{% url 'users:logout' %}">logout</a> </p>
                     
                 {% else %}
 
