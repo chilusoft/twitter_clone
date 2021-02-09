@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 
+
 from .models import Tweet
 from .forms import TweetForm
 
@@ -28,7 +29,9 @@ def create_tweet(request):
         tweet = TweetForm(data=request.POST)
 
         if tweet.is_valid:
-            tweet.save()
+            tweet_obj = tweet.save(commit=False)
+            tweet_obj.user = request.user
+            tweet_obj.save()
             return(redirect('core:index'))
 
     return render(request, 'core/create_tweet.html', {'tweet': tweet})

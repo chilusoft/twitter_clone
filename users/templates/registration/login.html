@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<div align="center">
+    <div align="center" style="width: 60%;" class="jumbotron">
+    <h1>Login to Continue</h1>
+    {% if form.errors %}
+        <div align="left">
+            <ul>
+                <li>Wrong username and pasword combination. try again</li>
+
+            </ul>
+        
+    </div>
+    {% endif %}
+
+    <form action="{% url 'users:login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-warning-outline btn-xl btn-info pull-right">Login</button>
+        <input type="hidden" name="next" value="{% url 'core:index' %}">
+        <span>Don't have an account? register  <a href="{% url 'users:register'%}">here</a></span>
+
+    </form>
+</div>
+</div>
+{% endblock content %}

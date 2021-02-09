@@ -2,14 +2,25 @@
 
 {% block content %}
 <br>
+<br>
+<br>
 
-    <p>All tweets</p>
+    
 
         </div>
-    {% for tweet in tweets %}
         <div align="center">
-    <div style="padding: 10px; width: 40%;" class="jumbotron" >
-        <p align="left" class="text-info"><b>@username</b> - <small style="font-style: italic;">{{tweet.date_added}}</small></p>
+        <a href="{% url 'core:create_tweet' %}" class="btn btn-info btn-lg "> Make Tweet <i class="fas fa-plus fa3x"></i> </a>
+    </div>
+    <br>
+    {% for tweet in tweets %}
+        <div align="center" class="rol">
+    <div style="padding: 10px; margin: 10px; " class="jumbotron col-xs-12 col-sm-6" >
+        <p align="left" class="text-info">
+            {% if user.is_authenticated %}
+                <b>{{user.username}}</b>
+            {% else %}
+            <b>@anonymous</b>
+            {% endif %} - <small style="font-style: italic;">{{tweet.date_added}}</small></p>
         <hr>
         <div  align="left">
         <p align="left" style="overflow-wrap: break-word ; border-left: 4px solid cadetblue ; border-radius: 5px; width: 100%;padding:5px; font-weight: bold; font-size: larger; text-align: left;">{{ tweet.text}}</p></div>
@@ -22,8 +33,8 @@
             </div>
            <div>
             <a href=""><span ><i class="fas fa-heart fa"></i> <b>{{tweet.likes}}</b></a><span>  </span>
-            <a href=""><span ><i class="fas fa-retweet fa"></i> <b>{{tweet.likes}}</b></a><span>  </span>
-            <a href=""><span ><i class="fas fa-share fa"></i> <b>{{tweet.likes}}</b></a><span>  </span>
+            <a href=""><span ><i class="fas fa-retweet fa"></i> <b>{{tweet.retweets}}</b></a><span>  </span>
+            <a href=""><span ><i class="fas fa-share fa"></i> <b>{{tweet.shares}}</b></a><span>  </span>
             </div>    
         </span>
         </div>

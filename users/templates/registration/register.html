@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<div align="center">
+    <div align="center" style="width: 60%;" class="jumbotron">
+    <h1>Create an Account to continue</h1>
+    {% if form.errors %}
+        <p>Check your data and try again</p>
+    {% endif %}
+
+    <form action="{% url 'users:register' %}" method="POST" >
+        {% csrf_token %}
+        <div align="left">
+        {{ form.as_p }}
+    </div>
+        <button type="submit">Sign Up</button>
+        <input type="hidden" name="next" value="{% url 'users:register' %}">
+    </form>
+</div>
+</div>
+{% endblock content %}
