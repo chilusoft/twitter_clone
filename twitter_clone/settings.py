@@ -25,7 +25,7 @@ SECRET_KEY = 'rzg^-engc(p13s5oi)218jx=_usl-q4n@hx0iv^kgs5&x4#_ww'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chilusoft.pythonanywhere.com']
 
 
 # Application definition
